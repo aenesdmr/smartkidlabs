@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "write": "node scripts/auto-writer.js"
+    "write": "node scripts/auto-writer.js",
+    "write:bulk": "node scripts/bulk-writer.js"
   },
   "dependencies": {
     "@keystatic/astro": "^5.1.0",
