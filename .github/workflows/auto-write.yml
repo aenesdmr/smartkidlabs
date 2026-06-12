@@ -36,5 +36,6 @@ jobs:
             echo "No new articles created."
           else
             git commit -m "Auto-post: New article generated"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
