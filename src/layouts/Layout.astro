@@ -1,23 +1,158 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Smartkid Labs | SEO, Meta & Google Ads Bilgi Bankası",
+  description = "Dijital reklamcılık, Meta Ads, Google Ads ve SEO konularında güncel rehberler, sorun giderme adımları ve teknoloji haberleri.",
+  image = "/og-image.jpg", // Default OG Image
+  canonicalURL = Astro.url.href
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+  </head>
+  <body class="bg-[#0B0F19] text-slate-200 font-sans min-h-screen flex flex-col antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+    <!-- Header/Nav -->
+    <header class="sticky top-0 z-40 bg-[#0B0F19]/80 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+            SL
+          </div>
+          <div class="flex flex-col">
+            <span class="font-outfit font-extrabold text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors duration-300">Smartkid <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Labs</span></span>
+            <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold -mt-0.5">Knowledge Base</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/category/google-ads" class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">Google Ads</a>
+          <a href="/category/meta-ads" class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">Meta Ads</a>
+          <a href="/category/seo-geo" class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">SEO & GEO</a>
+          <a href="/category/tech-marketing-news" class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">Haberler</a>
+          <a href="/category/troubleshooting-guides" class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">Sorun Giderme</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div>
+          <a 
+            href="https://smartkid.agency" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-200 hover:-translate-y-0.5"
+            id="nav-cta-btn"
+          >
+            Smartkid.agency
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform duration-200">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#080C14] border-t border-slate-900 py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-white text-sm">
+                SL
+              </div>
+              <span class="font-outfit font-extrabold text-lg text-white">Smartkid <span class="text-indigo-400">Labs</span></span>
+            </div>
+            <p class="text-sm text-slate-400 max-w-xs leading-relaxed">
+              Meta Ads, Google Ads, SEO ve büyüme odaklı pazarlama stratejilerinde işletmenizi bir üst seviyeye taşıyacak bilgi bankası.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sm tracking-wider uppercase text-slate-200 mb-4">Kategoriler</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/category/google-ads" class="text-slate-400 hover:text-indigo-400 transition-colors duration-200">Google Ads Rehberi</a></li>
+              <li><a href="/category/meta-ads" class="text-slate-400 hover:text-indigo-400 transition-colors duration-200">Meta Ads Rehberi</a></li>
+              <li><a href="/category/seo-geo" class="text-slate-400 hover:text-indigo-400 transition-colors duration-200">SEO & GEO Rehberi</a></li>
+              <li><a href="/category/troubleshooting-guides" class="text-slate-400 hover:text-indigo-400 transition-colors duration-200">Hızlı Sorun Giderme</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sm tracking-wider uppercase text-slate-200 mb-4">Ajansımız</h3>
+            <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+              Dijital dünyada büyümenizi hızlandırmak ve yüksek dönüşümlü reklam kampanyaları yönetmek için uzman ekibimizle tanışın.
+            </p>
+            <a 
+              href="https://smartkid.agency" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
+              id="footer-agency-link"
+            >
+              Smartkid.agency'yi ziyaret et
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-1">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="border-t border-slate-900 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>&copy; {new Date().getFullYear()} Smartkid Labs. Tüm hakları saklıdır.</p>
+          <p>Smartkid.agency'nin bir yan kuruluşudur.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
 </style>
