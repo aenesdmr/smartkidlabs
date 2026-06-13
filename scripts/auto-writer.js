@@ -16,6 +16,57 @@ const FEEDS = [
   { name: 'Google Product News', url: 'https://blog.google/products/ads-commerce/rss/' }
 ];
 
+// Predefined Evergreen Topics to ensure balanced categories (Guides & How-tos)
+const EVERGREEN_TOPICS = [
+  // Google Ads
+  { title: "Google Ads Bütçe Sınırlı Uyarısı Nedir ve Nasıl Çözülür?", source: "Evergreen", category: "google-ads" },
+  { title: "Performance Max (PMax) Kampanyaları ile Maksimum Dönüşüm Elde Etme Kılavuzu", source: "Evergreen", category: "google-ads" },
+  { title: "Google Ads Kalite Puanı Artırma Yolları: Adım Adım Rehber", source: "Evergreen", category: "google-ads" },
+  { title: "Arama Ağı Reklamlarında Doğru Anahtar Kelime Eşleme Türü Nasıl Seçilir?", source: "Evergreen", category: "google-ads" },
+  { title: "Google Ads Negatif Anahtar Kelime Listeleri Nasıl Oluşturulur?", source: "Evergreen", category: "google-ads" },
+  { title: "Yeniden Pazarlama (Remarketing) Kampanyaları ile Dönüşüm Oranlarını Katlayın", source: "Evergreen", category: "google-ads" },
+  { title: "Google Ads Tıklama Başına Maliyet (TBM) Düşürme Yöntemleri", source: "Evergreen", category: "google-ads" },
+  { title: "Google Ads Dönüşüm İzleme Kodları Nasıl Kurulur?", source: "Evergreen", category: "google-ads" },
+
+  // Meta Ads
+  { title: "Meta Pixel (Facebook Piksel) Nedir ve Web Sitesine Nasıl Kurulur?", source: "Evergreen", category: "meta-ads" },
+  { title: "Meta Conversions API (Dönüşümler API'si) Kurulum ve Entegrasyon Rehberi", source: "Evergreen", category: "meta-ads" },
+  { title: "Meta Reklamlarında Doğru Hedef Kitle (Lookalike & Custom Audience) Seçimi", source: "Evergreen", category: "meta-ads" },
+  { title: "Facebook ve Instagram Reklam Hesaplarının Kapatılma Nedenleri ve Çözümleri", source: "Evergreen", category: "meta-ads" },
+  { title: "CBO (Kampanya Bütçe Optimizasyonu) ve ABO (Reklam Seti Bütçe Optimizasyonu) Farkı", source: "Evergreen", category: "meta-ads" },
+  { title: "Düşük Bütçeli Meta Reklamlarında Maksimum Verim Alma Stratejileri", source: "Evergreen", category: "meta-ads" },
+  { title: "Sosyal Medya Reklamlarında Kreatif Test Etme (Creative Testing) Metotları", source: "Evergreen", category: "meta-ads" },
+  { title: "iOS 14+ Sonrası Meta Reklamlarında Dönüşüm Kayıplarını Önleme Yolları", source: "Evergreen", category: "meta-ads" },
+
+  // SEO & GEO
+  { title: "Yapılandırılmış Veri (Schema Markup) Nedir? SEO'ya Etkisi ve Kurulumu", source: "Evergreen", category: "seo-geo" },
+  { title: "Brave Search ve Perplexity Gibi Yapay Zeka Arama Motorları İçin SEO (GEO) Taktikleri", source: "Evergreen", category: "seo-geo" },
+  { title: "Teknik SEO Denetimi (Audit) Nasıl Yapılır? Kapsamlı Kontrol Listesi", source: "Evergreen", category: "seo-geo" },
+  { title: "Core Web Vitals (Önemli Web Verileri) Nedir ve Sayfa Hızı Nasıl Optimize Edilir?", source: "Evergreen", category: "seo-geo" },
+  { title: "Anahtar Kelime Araştırması Nasıl Yapılır? En İyi Ücretsiz Araçlar ve Taktikler", source: "Evergreen", category: "seo-geo" },
+  { title: "Görsel Optimizasyonu ile Google Görsel Arama Trafiğini Artırın", source: "Evergreen", category: "seo-geo" },
+  { title: "Dahili Linkleme (Internal Linking) Stratejileri ile Site Otoritesini Dağıtın", source: "Evergreen", category: "seo-geo" },
+  { title: "Rakip SEO Analizi Nasıl Yapılır? Rakiplerinizin Trafik Kaynaklarını Keşfedin", source: "Evergreen", category: "seo-geo" },
+
+  // Troubleshooting & Guides
+  { title: "Google Merchant Center Askıya Alınan Hesaplar Nasıl Düzeltilir?", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Google Analytics 4 (GA4) Veri Kaybı ve İzleme Hataları Nasıl Çözülür?", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Meta Business Manager Eşleştirme ve Yetkilendirme Hataları ve Çözümleri", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Google Tag Manager (GTM) Tetikleyici ve Etiket Hataları Nasıl Giderilir?", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Web Sitenizde Kırık Linkleri (404 Hataları) Bulma ve Yönlendirme Kılavuzu", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Google Search Console 'Dizin Oluşturma' (Indexing) Hataları ve Çözüm Yolları", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Meta Piksel 'Çift Olay Tetikleme' (Duplicate Event) Hatası Nasıl Giderilir?", source: "Evergreen", category: "troubleshooting-guides" },
+  { title: "Google Ads 'Politika İhlali' Nedir? Reklam Onaylanmama Sorunları Nasıl Çözülür?", source: "Evergreen", category: "troubleshooting-guides" },
+
+  // Digital Marketing & Growth
+  { title: "Dönüşüm Oranı Optimizasyonu (CRO) Nedir? Satışlarınızı Artıracak Testler", source: "Evergreen", category: "digital-marketing-growth" },
+  { title: "A/B Testi Nasıl Yapılır? Dijital Pazarlamada Doğru Test Senaryoları", source: "Evergreen", category: "digital-marketing-growth" },
+  { title: "Landing Page (Açılış Sayfası) Tasarımında Dikkat Edilmesi Gereken 10 Altın Kural", source: "Evergreen", category: "digital-marketing-growth" },
+  { title: "E-Ticarette Sepeti Terk Etme Oranlarını Düşürme Yöntemleri", source: "Evergreen", category: "digital-marketing-growth" },
+  { title: "B2B İşletmeler İçin Nitelikli Lead (Müşteri Adayı) Toplama Stratejileri", source: "Evergreen", category: "digital-marketing-growth" },
+  { title: "Müşteri Yaşam Boyu Değeri (LTV) Nedir ve Nasıl Artırılır?", source: "Evergreen", category: "digital-marketing-growth" }
+];
+
 // Helper to convert title to slug
 function slugify(text) {
   return text
@@ -65,7 +116,7 @@ Instructions:
 1. Write a comprehensive, long-form guide or news analysis in Turkish. It should be at least 800-1200 words.
 2. Structure the content beautifully with H2, H3 headings, lists, bold text, and direct advice. IMPORTANT: You MUST use literal newlines (\\n\\n) to separate paragraphs, headers, and list items. Ensure every heading is preceded and followed by a newline so it is parsed as markdown correctly.
 3. Naturally integrate a reference, citation, or Call-to-Action (CTA) directing readers to Smartkid.agency for expert management (e.g. "Profesyonel Google & Meta reklam kampanyaları yönetimi ve SEO danışmanlığı için Smartkid.agency ekibiyle iletişime geçebilirsiniz.").
-4. Categorize the post into exactly one of these slugs: google-ads, meta-ads, seo-geo, digital-marketing-growth, tech-marketing-news, troubleshooting-guides.
+4. Categorize the post into exactly one of these slugs: google-ads, meta-ads, seo-geo, digital-marketing-growth, tech-marketing-news, troubleshooting-guides. ${article.category ? `IMPORTANT: This article belongs to the category: "${article.category}", you MUST output this exact slug in the "category" JSON field.` : ''}
 5. Create a catchy, Turkish SEO title (max 60 chars) and a compelling SEO meta description (120-150 chars).
 
 You MUST respond with a JSON object in this exact schema:
@@ -148,29 +199,48 @@ You MUST respond with a JSON object in this exact schema:
 
 async function run() {
   try {
-    const articles = await getRecentArticles();
-    if (articles.length === 0) {
-      console.log('No articles found in feeds. Exiting.');
-      return;
-    }
-
-    // Try to find a feed article we haven't written about yet
     let selectedArticle = null;
     let selectedSlug = '';
 
-    for (const art of articles) {
-      const slug = slugify(art.title);
-      const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.md`);
-      
-      if (!fs.existsSync(filePath)) {
-        selectedArticle = art;
-        selectedSlug = slug;
-        break;
+    // 1. Try to fetch RSS feeds
+    let rssArticles = [];
+    try {
+      rssArticles = await getRecentArticles();
+    } catch (err) {
+      console.log('Failed to fetch RSS feeds, continuing to evergreen topics...', err.message);
+    }
+
+    // 2. Check if there is an unwritten RSS article
+    if (rssArticles.length > 0) {
+      for (const art of rssArticles) {
+        const slug = slugify(art.title);
+        const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.md`);
+        
+        if (!fs.existsSync(filePath)) {
+          selectedArticle = art;
+          selectedSlug = slug;
+          break;
+        }
+      }
+    }
+
+    // 3. Fallback to Evergreen Topics if no RSS article was found
+    if (!selectedArticle) {
+      console.log('No new RSS articles found. Checking evergreen topics...');
+      for (const topic of EVERGREEN_TOPICS) {
+        const slug = slugify(topic.title);
+        const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.md`);
+        
+        if (!fs.existsSync(filePath)) {
+          selectedArticle = topic;
+          selectedSlug = slug;
+          break;
+        }
       }
     }
 
     if (!selectedArticle) {
-      console.log('All recent articles have already been published. Exiting.');
+      console.log('All recent RSS articles and evergreen topics have already been published. Exiting.');
       return;
     }
 
