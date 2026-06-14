@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "write": "node scripts/auto-writer.js",
-    "write:bulk": "node scripts/bulk-writer.js"
+    "write:bulk": "node scripts/bulk-writer.js",
+    "write:evergreens": "node scripts/write-evergreens.js"
   },
   "dependencies": {
     "@keystatic/astro": "^5.1.0",
