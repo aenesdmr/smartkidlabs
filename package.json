@@ -15,6 +15,7 @@
     "write:evergreens": "node scripts/write-evergreens.js"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@keystatic/astro": "^5.1.0",
     "@keystatic/core": "^0.5.50",
     "@tailwindcss/vite": "^4.3.1",

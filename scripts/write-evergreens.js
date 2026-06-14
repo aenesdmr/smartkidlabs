@@ -61,7 +61,7 @@ You MUST respond with a JSON object in this exact schema:
   "content": "Full markdown body of the post in Turkish (must contain \\n\\n between paragraphs and sections)"
 }`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
   
   const response = await fetch(url, {
     method: 'POST',
