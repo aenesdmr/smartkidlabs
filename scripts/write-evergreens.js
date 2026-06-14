@@ -116,10 +116,19 @@ async function main() {
     }
 
     console.log(`\n--- Writing Guide ${i + 1}/${TARGET_GUIDES.length}: "${guide.title}" ---`);
-    try {
-      const generated = await generateGuide(guide);
-      
-      const ctaSection = `
+    let success = false;
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    while (!success && attempts < maxAttempts) {
+      attempts++;
+      try {
+        if (attempts > 1) {
+          console.log(`Attempt ${attempts}/${maxAttempts} for "${guide.title}"...`);
+        }
+        const generated = await generateGuide(guide);
+        
+        const ctaSection = `
 
 ---
 
@@ -131,7 +140,7 @@ Teknoloji ve pazarlama dünyasındaki bu hızlı değişimleri yakalamak, Google
 
 Hemen [Smartkid.agency](https://smartkid.agency) web sitemizi ziyaret edin ve ücretsiz keşif görüşmesi randevunuzu oluşturun!`;
 
-      const fileContent = `---
+        const fileContent = `---
 title: "${generated.title.replace(/"/g, '\\"')}"
 description: "${generated.description.replace(/"/g, '\\"')}"
 pubDate: ${new Date().toISOString().split('T')[0]}
@@ -143,14 +152,21 @@ draft: false
 ${generated.content.trim()}${ctaSection}
 `;
 
-      fs.writeFileSync(filePath, fileContent, 'utf-8');
-      console.log(`Successfully created: ${filePath}`);
-      
-      console.log('Sleeping 4 seconds to respect rate limits...');
-      await sleep(4000);
-    } catch (error) {
-      console.error(`Error generating guide "${guide.title}":`, error.message);
-      await sleep(10000); // Sleep longer on error
+        fs.writeFileSync(filePath, fileContent, 'utf-8');
+        console.log(`Successfully created: ${filePath}`);
+        success = true;
+        
+        console.log('Sleeping 10 seconds...');
+        await sleep(10000);
+      } catch (error) {
+        console.error(`Error on attempt ${attempts} for "${guide.title}":`, error.message);
+        if (attempts < maxAttempts) {
+          console.log('Waiting 65 seconds before retry...');
+          await sleep(65000);
+        } else {
+          console.error(`Failed to generate guide "${guide.title}" after ${maxAttempts} attempts. Skipping.`);
+        }
+      }
     }
   }
 
