@@ -246,7 +246,29 @@ async function run() {
 
     console.log(`Selected Topic: "${selectedArticle.title}" (${selectedArticle.source})`);
 
-    const generated = await generateContent(selectedArticle);
+    let generated = null;
+    let success = false;
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    while (!success && attempts < maxAttempts) {
+      attempts++;
+      try {
+        if (attempts > 1) {
+          console.log(`Attempt ${attempts}/${maxAttempts} to generate content...`);
+        }
+        generated = await generateContent(selectedArticle);
+        success = true;
+      } catch (err) {
+        console.error(`Error on attempt ${attempts}:`, err.message);
+        if (attempts < maxAttempts) {
+          console.log('Waiting 15 seconds before retry...');
+          await new Promise(resolve => setTimeout(resolve, 15000));
+        } else {
+          throw err;
+        }
+      }
+    }
 
     // Format the final file content with Frontmatter and programmatically append a beautiful CTA
     const ctaSection = `
