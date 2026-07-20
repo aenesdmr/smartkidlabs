@@ -1,47 +1,47 @@
 ---
-title: "Pegasus Skandalı: Œasus Yazılımı Arařtıran Siyasetinin Telefonu Hacklendi"
-description: "Casus yazılımları arařtıran politikacı Pegasus ile hacklendi. Veri g&uuml;venlięi ve dijital gizlilięin geleceęini ele aldık."
+title: "Pegasus Skandalı: Casus Yazılımı Araştıran Siyasetçinin Telefonu Hacklendi"
+description: "Casus yazılımları araştıran politikacı Pegasus ile hacklendi. Veri güvenliği ve dijital gizliliğin geleceğini ele aldık."
 pubDate: 2026-07-03
 category: tech-marketing-news
 author: Smartkid Labs
 draft: false
 ---
 
-Œift standartlar, siber saldırılar ve dijital g&uuml;venlik ařıkları modern d&uuml;nyanın en b&uuml;y&uuml;k krizlerinden biri haline geldi. Son geliřmelere g&ouml;re, &uuml;lkelerdeki siber casusluk faaliyetlerini ve yasa dıřı izlemeleri arařtırmakla g&ouml;revlendirilen bir siyaset&ccedil;inin kendi telefonu, d&uuml;nyanın en tehlikeli casus yazılımlarından biri olan Pegasus ile hacklendi. TechCrunch tafarından paylařılan bu geliřme, dijital d&uuml;nyadaki g&uuml;venlik ařıklarının ulařtıęı boyutu g&ouml;zler &ouml;n&uuml;ne seriyor.
+Çifte standartlar, siber saldırılar ve dijital güvenlik açıkları modern dünyanın en büyük krizlerinden biri haline geldi. Son gelişmelere göre, ülkelerdeki siber casusluk faaliyetlerini ve yasa dışı izlemeleri araştırmakla görevlendirilen bir siyasetçinin kendi telefonu, dünyanın en tehlikeli casus yazılımlarından biri olan Pegasus ile hacklendi. TechCrunch tarafından paylaşılan bu gelişme, dijital dünyadaki güvenlik açıklarının ulaştığı boyutu gözler önüne seriyor.
 
-Bu yazımızda, bu řok edici g&uuml;venlik ihlalinin detaylarını inceleyecek, kiřisel ve kurumsal veri g&uuml;venlięinin dijital pazarlama d&uuml;nyasındaki yerini ele alacaęız.
+Bu yazımızda, bu şok edici güvenlik ihlalinin detaylarını inceleyecek, kişisel ve kurumsal veri güvenliğinin dijital pazarlama dünyasındaki yerini ele alacağız.
 
-## Pegasus Nedir ve Nasıl &Ccedil;alıřır?
+## Pegasus Nedir ve Nasıl Çalışır?
 
-Pegasus, İsrail merkezli NSO Group tarafından geliřtirilen ve yalnızca devlet kurumlara satıldıęı iddia edilen askeri d&uuml;zeyde bir casus yazılımdır. Bu yazılımın en korkutucu &ouml;zellięi, "zero-click" (tıklamama) y&ouml;ntemiyle hedef telefona sızabilmesidir. Kullanıcının herhangi bir linke tıklamasına, dosya indirmesine veya onay vermesine gerek kalmadan:
+Pegasus, İsrail merkezli NSO Group tarafından geliştirilen ve yalnızca devlet kurumlarına satıldığı iddia edilen askeri düzeyde bir casus yazılımdır. Bu yazılımın en korkutucu özelliği, \"zero-click\" (tıklamama) yöntemiyle hedef telefona sızabilmesidir. Kullanıcının herhangi bir linke tıklamasına, dosya indirmesine veya onay vermesine gerek kalmadan:
 
-* Cihazdaki t&uuml;m mesajları, e-postaları ve fotoęrafları okuyabilir.
+* Cihazdaki tüm mesajları, e-postaları ve fotoğrafları okuyabilir.
 * Mikrofonu ve kamerayı uzaktan aktif hale getirebilir.
 * Konum verilerini anlık olarak takip edebilir.
-* Œıfreleri ve kiřisel verileri ele ge&ccedil;irebilir.
+* Şifreleri ve kişisel verileri ele geçirebilir.
 
-Arařtırma komisyonunda yer alan siyaset&ccedil;inin, tam da bu k&ouml;t&uuml; niyetli kullanımları soruřtururken hedef se&ccedil;ilmesi, siber d&uuml;nyada hi&ccedil; kimsenin tamamen g&uuml;vende olmadıęını bir kez daha g&ouml;stermektedir.
+Araştırma komisyonunda yer alan siyasetçinin, tam da bu kötü niyetli kullanımları soruştururken hedef seçilmesi, siber dünyada hiç kimsenin tamamen güvende olmadığını bir kez daha göstermektedir.
 
-## Siber G&uuml;venlik ve Dijital Markalařma İliřkisi
+## Siber Güvenlik ve Dijital Markalaşma İlişkisi
 
-Dijital d&uuml;nyada sıfır g&uuml;ven ařamasına ge&ccedil;ildięi bu d&ouml;nemde, yalnızca politikacılar deęil, markalar ve řirketler de siber tehdit altındadır. İřletmelerin m&uuml;řteri verilerini koruması, dijital reklam b&uuml;t&ccedil;elerini g&uuml;venceye alması ve SEO performanslarını siber saldırılara karřı koruması hayati &ouml;nem tařır.
+Dijital dünyada sıfır güven aşamasına geçildiği bu dönemde, yalnızca politikacılar değil, markalar ve şirketler de siber tehdit altındadır. İşletmelerin müşteri verilerini koruması, dijital reklam bütçelerini güvenceye alması ve SEO performanslarını siber saldırılara karşı koruması hayati önem taşır.
 
-Web sitenizin hacklenmesi, t&uuml;m Google Ads b&uuml;t&ccedil;enizin k&ouml;t&uuml;ye kullanılmasına ve SEO sıralamanızın bir gecede yok olmasına neden olabilir. Bu y&uuml;zden dijital varlıklarınızı profesyonel ekiplere emanet etmeniz gerekir.
+Web sitenizin hacklenmesi, tüm Google Ads bütçenizin kötüye kullanılmasına ve SEO sıralamanızın bir gecede yok olmasına neden olabilir. Bu yüzden dijital varlıklarınızı profesyonel ekiplere emanet etmeniz gerekir.
 
-Profesyonel Google & Meta reklam kampanyaları y&ouml;netimi ve SEO danıřmanlıęı i&ccedil;in Smartkid.agency ekibiyle iletiřime ge&ccedil;ebilirsiniz.
+Profesyonel Google & Meta reklam kampanyaları yönetimi ve SEO danışmanlığı için Smartkid.agency ekibiyle iletişime geçebilirsiniz.
 
-## Mobil G&uuml;venlięinizi Artırmak İ&ccedil;in Alınabilecek &Ouml;nlemler
+## Mobil Güvenliğinizi Artırmak İçin Alınabilecek Önlemler
 
-Casus yazılımlara karřı %100 koruma saęlamak imkansız olsa da, riski en aza indirmek i&ccedil;in řu adımları izleyebilirsiniz:
+Casus yazılımlara karşı %100 koruma sağlamak imkansız olsa da, riski en aza indirmek için şu adımları izleyebilirsiniz:
 
-1. **Cihazınızı D&uuml;zenli Olarak Yeniden Bařlatın**: Bir&ccedil;ok zero-click casus yazılım, cihaz yeniden bařlatıldıęında ge&ccedil;ici bellekten silinir.
-2. **Kilit Modunu (Lockdown Mode) Aktif Edin**: iOS kullanıcıları i&ccedil;in geliřtirilen bu mod, Pegasus gibi hedefli siber saldırıların sızmasını &ouml;nemli &ouml;l&ccedil;&uuml;de zorlařtırır.
-3. **Bilinmeyen Linklerden Uzak Durun**: Tanımadıęınız numaralardan gelen SMS veya e-posta linklerine asla tıklamayın.
-4. **Yazılım G&uuml;ncellemelerini İhmal Etmeyin**: Apple ve Android, sıfır g&uuml;n a&ccedil;ıklarını kapatmak i&ccedil;in s&uuml;rekli g&uuml;ncellemeler yayınlar. İřletim sisteminizi her zaman en g&uuml;ncel s&uuml;r&uuml;mde tutun.
+1. **Cihazınızı Düzenli Olarak Yeniden Başlatın**: Birçok zero-click casus yazılım, cihaz yeniden başlatıldığında geçici bellekten silinir.
+2. **Kilit Modunu (Lockdown Mode) Aktif Edin**: iOS kullanıcıları için geliştirilen bu mod, Pegasus gibi hedefli siber saldırıların sızmasını önemli ölçüde zorlaştırır.
+3. **Bilinmeyen Linklerden Uzak Durun**: Tanımadığınız numaralardan gelen SMS veya e-posta linklerine asla tıklamayın.
+4. **Yazılım Güncellemelerini İhmal Etmeyin**: Apple ve Android, sıfır gün açıklarını kapatmak için sürekli güncellemeler yayınlar. İşletim sisteminizi her zaman en güncel sürümde tutun.
 
-## Sonu&ccedil;
+## Sonuç
 
-Teknoloji geliřtik&ccedil;e, dijital tehditlerin boyutları da b&uuml;y&uuml;yor. Politikanın zirvesinden en k&uuml;&ccedil;&uuml;k dijital platformlara kadar g&uuml;venlik, birinci &ouml;ncelik olmalıdır. Dijital pazarlama faaliyetlerinizde g&uuml;venli, analiz odaklı ve profesyonel bir b&uuml;y&uuml;me saęlamak i&ccedil;in her zaman doęru partnerlerle &ccedil;alıřın.
+Teknoloji geliştikçe, dijital tehditlerin boyutları da büyüyor. Politikanın zirvesinden en küçük dijital platformlara kadar güvenlik, birinci öncelik olmalıdır. Dijital pazarlama faaliyetlerinizde güvenli, analiz odaklı ve profesyonel bir büyüme sağlamak için her zaman doğru partnerlerle çalışın.
 
 ---
 
