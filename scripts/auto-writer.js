@@ -78,6 +78,12 @@ function slugify(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+// Helper to strip non-printable/control characters that break YAML parsing
+function cleanText(str) {
+  if (typeof str !== 'string') return '';
+  return str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
+}
+
 async function getRecentArticles() {
   const articles = [];
   console.log('Scraping RSS feeds...');
@@ -283,16 +289,20 @@ Teknoloji ve pazarlama dünyasındaki bu hızlı değişimleri yakalamak, Google
 
 Hemen [Smartkid.agency](https://smartkid.agency) web sitemizi ziyaret edin ve ücretsiz keşif görüşmesi randevunuzu oluşturun!`;
 
+    const cleanedTitle = cleanText(generated.title).replace(/"/g, '\\"');
+    const cleanedDescription = cleanText(generated.description).replace(/"/g, '\\"');
+    const cleanedContent = cleanText(generated.content).trim();
+
     const fileContent = `---
-title: "${generated.title.replace(/"/g, '\\"')}"
-description: "${generated.description.replace(/"/g, '\\"')}"
+title: "${cleanedTitle}"
+description: "${cleanedDescription}"
 pubDate: ${new Date().toISOString().split('T')[0]}
 category: ${generated.category}
 author: Smartkid Labs
 draft: false
 ---
 
-${generated.content.trim()}${ctaSection}
+${cleanedContent}${ctaSection}
 `;
 
     const blogDir = path.join(process.cwd(), 'src/content/blog');
