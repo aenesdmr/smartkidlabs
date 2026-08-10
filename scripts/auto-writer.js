@@ -135,44 +135,62 @@ You MUST respond with a JSON object in this exact schema:
 
   if (process.env.GEMINI_API_KEY) {
     console.log('Generating content using Gemini API...');
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`;
     
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          responseMimeType: 'application/json',
-          maxOutputTokens: 8192,
-          thinkingConfig: {
-            thinkingBudget: 0
-          },
-          responseSchema: {
-            type: 'OBJECT',
-            properties: {
-              title: { type: 'STRING' },
-              description: { type: 'STRING' },
-              category: {
-                type: 'STRING',
-                enum: ['google-ads', 'meta-ads', 'seo-geo', 'digital-marketing-growth', 'tech-marketing-news', 'troubleshooting-guides']
-              },
-              content: { type: 'STRING' }
-            },
-            required: ['title', 'description', 'category', 'content']
-          }
+    // Fallback list of models to route around daily free tier limits (20 reqs/day per model)
+    // and avoid 400 errors from unsupported options.
+    const models = [
+      'gemini-flash-latest',
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-flash-lite-latest'
+    ];
+    
+    let lastError = null;
+    for (const model of models) {
+      try {
+        console.log(`Attempting generation with model: ${model}`);
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+        
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: 'application/json',
+              maxOutputTokens: 8192,
+              responseSchema: {
+                type: 'OBJECT',
+                properties: {
+                  title: { type: 'STRING' },
+                  description: { type: 'STRING' },
+                  category: {
+                    type: 'STRING',
+                    enum: ['google-ads', 'meta-ads', 'seo-geo', 'digital-marketing-growth', 'tech-marketing-news', 'troubleshooting-guides']
+                  },
+                  content: { type: 'STRING' }
+                },
+                required: ['title', 'description', 'category', 'content']
+              }
+            }
+          })
+        });
+
+        if (!response.ok) {
+          const errText = await response.text();
+          throw new Error(`Gemini API error for ${model}: ${response.status} - ${errText}`);
         }
-      })
-    });
 
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(`Gemini API error: ${response.status} - ${errText}`);
+        const resData = await response.json();
+        const jsonText = resData.candidates[0].content.parts[0].text;
+        return JSON.parse(jsonText);
+      } catch (err) {
+        console.warn(`Model ${model} failed:`, err.message);
+        lastError = err;
+      }
     }
-
-    const resData = await response.json();
-    const jsonText = resData.candidates[0].content.parts[0].text;
-    return JSON.parse(jsonText);
+    
+    throw new Error(`All Gemini models failed. Last error: ${lastError.message}`);
 
   } else {
     console.log('Generating content using OpenAI API...');
@@ -329,6 +347,7 @@ ${cleanedContent}${ctaSection}
 
   } catch (error) {
     console.error('Automation failed:', error);
+    process.exit(1);
   }
 }
 
